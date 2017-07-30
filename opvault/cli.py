@@ -18,7 +18,7 @@ from opvault.onepass import OnePass
 from opvault import exceptions
 from opvault import designation_types
 import sys
-import getpass
+#import getpass
 
 
 def main():
@@ -70,7 +70,8 @@ def main():
 
     try:
         # Unlocking vault
-        master_password = getpass.getpass(prompt='1Password master password: ')
+        # master_password = getpass.getpass(prompt='1Password master password: ')
+        master_password = sys.stdin.read().strip()
         vault.unlock(master_password=master_password)
 
         # Load all items (not details) and return match for 'title'
